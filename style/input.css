@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --color-custom-red: #c73a0f;
+  --color-custom-green: #1ea475;
+  --color-custom-rose-50: #fcf9f7;
+  --color-custom-rose-100: #f4edeb;
+  --color-custom-rose-300: #c9aea6;
+  --color-custom-rose-400: #ad8985;
+  --color-custom-rose-500: #87635a;
+  --color-custom-rose-900: #260f08;
+}
+.buyBtn {
+  @apply flex justify-center items-center gap-2 py-2.5 px-5 rounded-full absolute left-1/2 -translate-x-1/2 bottom-21.5 w-36 bg-white text-sm cursor-pointer border-1 border-custom-rose-300;
+}
+.counter {
+  @apply hidden justify-between items-center p-2.5 rounded-full bg-custom-red absolute left-1/2 -translate-x-1/2 bottom-21.5 w-36 text-sm cursor-pointer text-white;
+}
+.plus {
+  @apply relative w-6 h-6 flex justify-center items-center border-1 border-white rounded-full cursor-pointer;
+}
+.minus {
+  @apply relative w-6 h-6 flex justify-center items-center border-1 border-white rounded-full cursor-pointer;
+}
+.orderdCart {
+  @apply py-2 border-b-1 border-custom-rose-100 relative;
+}
+html {
+  scrollbar-gutter: stable;
+}
+body {
+  font-family: "Red Hat Text", "Segoe UI", Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-display: swap;
+}
+#items > div.selected img {
+  border: 2px solid var(--color-custom-red);
+  border-radius: 6px;
+}
+#items > div.selected button {
+  display: none;
+}
+#items > div.selected .counter {
+  display: flex;
+}
+#cartItems.active ~ #hiddenContent {
+  display: flex;
+}
+#cartItems:not(.active) ~ #emptyContent {
+  display: block;
+}
+#cartItems div button {
+  border: 1px solid var(--color-custom-rose-300);
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  transition: 0.2s;
+  color: var(--color-custom-rose-300);
+}
+#cartItems div button:hover {
+  border-color: var(--color-custom-rose-900);
+  color: var(--color-custom-rose-900);
+}
+#cartItems div button::after {
+  content: url(../images/icon-remove-item.svg);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#orderedItems li {
+  padding-block: 8px;
+  border-bottom: 1px solid var(--color-custom-rose-100);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#orderedItems li img {
+  width: 40px;
+  border-radius: 4px;
+}
+
+#orderedItems li div h3 {
+  font-size: 16px;
+  color: var(--color-custom-rose-900);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
+}
+
+#orderedItems li div ~ span {
+  font-size: 15px;
+  color: var(--color-custom-rose-900);
+  margin-left: auto;
+  font-weight: 500;
+}
+
+#orderedItems li div div span:nth-of-type(1) {
+  color: var(--color-custom-red);
+  margin-right: 10px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#orderedItems li div div span:nth-of-type(2) {
+  color: var(--color-custom-rose-300);
+  font-size: 14px;
+  font-weight: 500;
+}
