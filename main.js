@@ -313,6 +313,7 @@ function confirmation() {
   orderTotalSpan.textContent = `${orderTotal.toFixed(2)}$`;
   newOrderBtn.addEventListener("click", () => {
     cart = [];
+    sessionStorage.clear()
     confirmPopUp.style.display = "none";
     renderPage();
   });
